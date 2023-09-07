@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mousedown Event Example</title>
+    <style>
+        body{
+            background-image: url('Gogo-and-Geto-1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 10px;
+            color: white;
+            text-shadow: 2px 2px rgb(116, 116, 116);
+            text-transform: uppercase;
+            border: solid 2px black;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-size: 17px;
+            background-color: hsl(49deg 98% 60%);
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            transition: all .5s ease;
+            margin-bottom: 80px;
+            margin-top: 30px;
+        }
+
+        button:active {
+            transform: scale(.9);
+            transition: all 100ms ease;
+        }
+
+        button svg {
+            transition: all .5s ease;
+            z-index: 2;
+        }
+
+        .play {
+            transition: all .5s ease;
+            transition-delay: 300ms;
+        }
+
+        button:hover svg {
+            transform: scale(3) translate(50%);
+        }
+
+        .now {
+            position: absolute;
+            left: 0;
+            transform: translateX(-100%);
+            transition: all .5s ease;
+            z-index: 2;
+        }
+
+        button:hover .now {
+            transform: translateX(10px);
+            transition-delay: 300ms;
+        }
+
+        button:hover .play {
+            transform: translateX(200%);
+            transition-delay: 300ms;
+        }
+        .spinner {
+        margin-top:50px ;
+        width: 56px;
+        height: 56px;
+        display: grid;
+        border: 4.5px solid #0000;
+        border-radius: 50%;
+        border-color: #dbdcef #0000;
+        animation: spinner-e04l1k 1s infinite linear;
+        }
+
+        .spinner::before,
+        .spinner::after {
+        content: "";
+        grid-area: 1/1;
+        margin: 2.2px;
+        border: inherit;
+        border-radius: 50%;
+        }
+
+        .spinner::before {
+        border-color: #474bff #0000;
+        animation: inherit;
+        animation-duration: 0.5s;
+        animation-direction: reverse;
+        }
+
+        .spinner::after {
+        margin: 8.9px;
+        }
+
+        @keyframes spinner-e04l1k {
+        100% {
+            transform: rotate(1turn);
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <center><button id="myButton">Click me!</button></center>
+    
+    <center><audio id="audioElement" controls>
+        <source src="Adie and Janine Berdin perform _Mahika_ LIVE on Wish 107.5 Bus.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio></center>
+    <center><div class="spinner"></div></center>
+
+    <script>
+        var button = document.getElementById("myButton");
+
+        button.addEventListener("mousedown", function(event) {
+            alert("Button was pressed!");
+        });
+
+        audioElement.addEventListener("play", function (event) {
+            alert("Audio playback started");
+        });
+    </script>
+</body>
+</html>
